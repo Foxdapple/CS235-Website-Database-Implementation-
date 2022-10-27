@@ -1,0 +1,171 @@
+/* General styling   ============================================================================= */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  background-color: gray;
+  border-radius: 25px;
+  margin: 5px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+/* Track search navigation extras  ============================================================================= */
+#track_list_navi ul {
+  background-color: gray;
+}
+
+#track_list_navi li a {
+  background-color: #f3f3f3;
+  color: black;
+}
+
+/* Change the link color to #111 (black) on hover */
+#track_list_navi li a:hover {
+  background-color: #ddd;
+}
+
+
+/*  Search styling   ============================================================================= */
+#error_message{
+  text-align: center;
+}
+
+
+/*  Grid system   ============================================================================= */
+
+.span_3_of_3 {
+	width: 100%; 
+}
+
+.span_2_of_3 {
+	width: 66.13%; 
+}
+
+.span_1_of_3 {
+	width: 32.26%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span_3_of_3 {
+		width: 100%; 
+	}
+	.span_2_of_3 {
+		width: 100%; 
+	}
+	.span_1_of_3 {
+		width: 100%;
+	}
+}
+
+/* Page styling   ============================================================================= */
+.container{
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#nav.span_3_of_3{
+  border-radius: 10px 10px 0px 0px;
+  background-color: #1abc9c;
+}
+
+#footer.span_3_of_3{
+  background-color: gray;
+  border-radius: 0px 0px 10px 10px;
+  float: left;
+}
+
+#footer_content{
+  padding: 10px;
+}
+
+#content.span_2_of_3{
+  float: right;
+}
+
+#extra.span_1_of_3{
+  float: left;
+}
+
+#extra.span_1_of_3, #content.span_2_of_3, #head.span_3_of_3, .container{
+  background-color: whitesmoke;
+}
+
+/* Navigation styling   ============================================================================= */
+#nav-header{
+  padding: 10px;
+  text-align: center;
+}
+
+#left{
+  float: left;
+}
+
+.page_view{
+  margin: 16px;
+}
+
+/* body styling   ============================================================================= */
+#main, #track, #track_list, #error_message, #track_list_navi{
+  background-color: grey;
+  margin: 10px;
+  padding: 8px;
+}
+
+/* Track view styling */
+#track_list, #review{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+#track_list_navi{
+  display: flex;
+  justify-content: center;
+}
+
+#track_list td, #track_list th, #review td, #review th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#track_list tr:nth-child(even), #review tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#track_list tr:hover, #review tr:hover{
+  background-color: #ddd;
+}
+
+#track_list th, #review th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Music heaven 2022</title>
+
+    <link rel="stylesheet" href={{ url_for("static", filename="css/main.css")
+}}>
+
+  <body>
+    <div class="container">
+
+      <div class="span_3_of_3" id="nav">
+        <!-- Include navigation partial. -->
+        {% include 'navigation.html' %}
+      </div>
+  
+      <div class="span_3_of_3" id="head">
+        <!-- Include header partial. -->
+        <!-- {% include 'header.html' %} -->
+      </div>
+
+      <div class="span_2_of_3" id="content">
+        <!-- Main content block to be supplied by page. -->
+        {% block content %} {% endblock %}
+      </div>
+
+      <div class="span_1_of_3" id="extra">
+        <!-- Include sidebar partial. -->
+        {% include 'simple_track.html' %}
+      </div>
+      
+      <div class="span_3_of_3" id="footer">
+        <div id="footer_content">
+          <p>COMPSCI 235 Software Development Methodologies</p> 
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

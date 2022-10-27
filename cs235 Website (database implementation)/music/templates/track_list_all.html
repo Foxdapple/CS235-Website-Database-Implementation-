@@ -1,0 +1,65 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div id="track_list">
+
+  <div id="track_list_navi">
+    <div class="page_view">
+      <form method="POST" action="{{ handler_url }}">
+        {{ form.csrf_token }}
+        <select name="back" hidden>
+          <option selected value="0"></option>
+        </select>
+        <button type="submit">&#8592;</button>
+      </form>
+    </div>
+
+    <ul id="track_ul">
+      <li><a class="btn-nav" href="{{ url_for('track_bp.list_some_tracks') }}">Select page of tracks</a></li>
+    </ul>
+
+    <div class="page_view">
+      <form method="POST" action="{{ handler_url }}">
+        <form method="POST" action="{{ handler_url }}">
+          {{ form.csrf_token }}
+          <select name="forward" hidden>
+            <option selected value="0"></option>
+          </select>
+          <button type="submit">&#8594;</button>
+        </form>
+      </form>
+    </div>
+  </div>
+  
+  <table>
+    <tr>
+      <th>Artist</th>
+      <th>Album</th>
+      <th>Song/Title</th>
+      <th>Url</th>
+      <th>Duration</th>
+      <th>View</th>
+    </tr>
+    {% for tracks in track_list %}
+    <tr>
+      <td>{{ tracks.artist.full_name }}</td>
+      <td>{{ tracks.album.title }}</td>
+      <td>{{ tracks.title }}</td>
+      <td style="width: 2px;">{{ tracks.track_url }}</td>
+      <td>{{ tracks.track_duration }}</td>
+      
+      <td>
+        {% set track_info_id = tracks.track_id %}
+        <form method="POST" action="{{ url_for('track_bp.track_viewer_id', track_id=track_info_id) }}">
+          {{ form.csrf_token }}
+          <select name="track" hidden>
+              <option value="{{ track_info_id }}"></option>
+          </select>
+          <button type="submit">View Track</button>
+        </form>
+      </td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

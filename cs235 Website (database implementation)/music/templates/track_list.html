@@ -1,0 +1,15 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div id="track_list_navi">
+  <ul id="track_ul">
+    <li><a class="btn-nav" href="{{ url_for('track_bp.success', index=1) }}">View tracks</a></li>
+    <li><a class="btn-nav" href="{{ url_for('track_bp.find_track') }}">Find a specific track</a></li>
+    {% if logged_in %}
+      <li><a class="btn-nav" href="{{ url_for('user_bp.write_review') }}">Write a review for a track</a></li>
+    {% endif %}
+  </ul>
+</div>
+<div>
+  <p id="error_message">{{ message }}</p>
+</div>
+{% endblock %}

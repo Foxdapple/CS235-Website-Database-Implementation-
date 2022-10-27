@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div id="track_list">
+  <form method="POST" action="{{ handler_url }}">
+    {{ form.csrf_token }}
+    <select name="index">
+      <option selected>Select page Number</option>
+      {% for index in range(amount) %}
+      {% if index != 0 %}
+        <option value="{{ index }}">{{ index }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}

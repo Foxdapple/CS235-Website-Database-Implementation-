@@ -1,0 +1,67 @@
+{% extends 'layout.html' %} {% block content %}
+<div id="track_list">
+  <div>
+    <form method="POST" action="{{ handler_url }}">
+      {{ form.csrf_token }}
+      <div>{{ form.id.label }} {{ form.id }} {{ form.submit }}</div>
+    </form>
+  </div>
+  
+  <div>
+    <form method="POST" action="{{ handler_url }}">
+      {{ form.csrf_token }}
+      {% set check_list_artist = [] %}
+      <select name="artist">
+        <option selected disabled>Select Artist</option>
+        {% for track in track_list %}
+        {% set artist = track.artist.full_name %}
+          {% if artist not in check_list_artist %}
+            {{ check_list_artist.append(artist) }}
+            <option value="{{ artist }}">{{ artist }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  
+  <div>
+    <form method="POST" action="{{ handler_url }}">
+      {{ form.csrf_token }}
+      {% set check_list_title = [] %}
+      <select name="track_name">
+        <option selected disabled>Select Track</option>
+        {% for track in track_list %}
+          {% set track_name = track.title %}
+          {% if track_name not in check_list_title %}
+            {{ check_list_title.append(track_name) }}
+            <option value="{{ track_name }}">{{ track_name }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div>
+    <form method="POST" action="{{ handler_url }}">
+      {{ form.csrf_token }}
+      {% set check_list_genre = [] %}
+      <select name="genre_name">
+        <option selected disabled>Select Genre</option>
+        {% for track in track_list %}
+          {% set genre_list = track.genres %}
+          {% for genre in genre_list %}
+            {% if genre not in check_list_genre %}
+              {{ check_list_genre.append(genre) }}
+              {% set genre_title = genre.name %}
+              <option value="{{ genre_title }}">{{ genre_title }}</option>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

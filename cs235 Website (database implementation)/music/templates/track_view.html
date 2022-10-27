@@ -1,0 +1,30 @@
+{% extends 'layout.html' %} {% block content %}
+<main id="main">
+  <h1>Title: {{ song }}</h1>
+  <h2>Album: {{ album }}</h2>
+  <h3>Artist: {{ artist }}</h3>
+  <p>Track Duration: <b>{{ duration }}</b> seconds</p>
+  <p>Track URL: <i><a href="{{ url }}">{{ url }}</a></i></p>
+  <div id="review">
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Review</th>
+        <th>Rating</th>
+      </tr>
+      {% for review in range(reviews|length) %}
+        <tr>
+          {% if review < users|length %}
+            <td>{{ users[review].user_name }}</td>
+          {% else %}
+            <td>User Removed</td>
+          {% endif %}
+
+          <td>{{ reviews[review].review_text }}</td>
+          <td>{{ reviews[review].rating }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</main>
+{% endblock %}

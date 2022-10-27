@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} {% block content %}
+<div id="track_list">
+  <div>
+    <form method="POST" action="{{ handler_url }}">
+      {{ form.csrf_token }}
+      <div>{{ form.review.label }} {{ form.review }}</div>
+      
+      {% set check_list_title = [] %}
+      <select name="track_name">
+        <option selected disabled>Select Song</option>
+        {% for track in track_list %}
+        {% set track_title = track.title %}
+        {% if track_title not in check_list_title %}
+          {{ check_list_title.append(track_title) }}
+          <option value="{{ track }}">Track title: "{{ track_title }}" ||| Album title: "{{ track.album.title }}"</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      </br>
+      
+      <select name="rating">
+        <option selected disabled>Rating</option>
+        <option value="1">&#9733; &#9734; &#9734; &#9734; &#9734;</option>
+        <option value="2">&#9733; &#9733; &#9734; &#9734; &#9734;</option>
+        <option value="3">&#9733; &#9733; &#9733; &#9734; &#9734;</option>
+        <option value="4">&#9733; &#9733; &#9733; &#9733; &#9734;</option>
+        <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+      </select>
+      </br>
+      
+      {{ form.submit }}
+    </form>
+  </div>
+</div>
+{% endblock %}

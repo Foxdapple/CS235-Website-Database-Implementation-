@@ -1,0 +1,23 @@
+<nav id="nav">
+  
+    <h2 id="nav-header">
+      <p style="font-size: 45px;">Music heaven</p>
+      <p style="font-size: 20px;">Where you can find all your musical needs</p>
+    </h2>
+    <div id="nav-links">
+        <ul>
+            <li><a class="btn-nav" href="{{ url_for('body_bp.body') }}">Home</a></li>
+            <li><a class="btn-nav" href="{{ url_for('track_bp.list_track') }}">Tracks</a></li>
+            <div style="float: right;">
+              <li><a class="btn-nav" href="{{ url_for('user_bp.register') }}">Register</a></li>
+              <li><a class="btn-nav" href="{{ url_for('user_bp.login') }}">Login</a></li>
+              {% if logged_in %}
+                <li><a class="btn-nav" href="{{ url_for('user_bp.logout') }}">Logout</a></li>
+              {% endif %}
+            </div>
+            
+        </ul>
+    </div>
+    
+  </nav>
+  

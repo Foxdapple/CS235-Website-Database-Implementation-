@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} {% block content %}
+<div id="track_list">
+  <div>
+    <h1>{{ title }}</h1>
+    <form method="POST" action="{{ handler_url }}">
+      {{ form.csrf_token }}
+      <div>{{ form.username.label }} {{ form.username }}</div>
+      <div>{{ form.password.label }} {{ form.password }}</div>
+      {{ form.submit }}
+    </form>
+    <p>{{ message }}</p>
+  </div>
+</div>
+{% endblock %}
